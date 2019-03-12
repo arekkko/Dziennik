@@ -14,6 +14,7 @@ class Students{
         }
     }
     
+    
     public function get_class_list_as_HTML(){
         $sql = "SELECT id_klasy, klasa FROM klasy"; 
         

@@ -6,6 +6,7 @@ class Authorization {
     
     public function __construct(){
         
+        
         //Create connect 
         $this->con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE); 
         
