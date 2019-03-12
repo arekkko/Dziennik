@@ -42,11 +42,10 @@ class Authorization {
     
     //Login Process
     public function login_process($login, $password){
-        echo 'Proces logowania'; 
         //$password = md5($password); 
         
-        $sql = "SELECT id_osoby FROM nauczyciele WHERE login='${login}' AND password='${password}' UNION SELECT id_osoby FROM uczniowie WHERE login='${login}' AND password='${password}'"; 
-        
+        $sql = "SELECT id_login FROM logowanie WHERE login='${login}' AND haslo='${password}'"; 
+
         //check if user is in database
         $query = mysqli_query($this->con, $sql);
         
@@ -58,7 +57,7 @@ class Authorization {
             $this->display_success('Witaj, zalogowałeś się poprawnie'); 
             //session_start();
             $_SESSION['login']   = true; 
-            $_SESSION['id_osoby'] = $result['id_osoby'];
+            $_SESSION['id_login'] = $result['id_login'];
              
             return true;
             
@@ -69,6 +68,20 @@ class Authorization {
         }
     }
     
+    //in table logowanie
+    public function get_user_logged_id(){
+        return $_SESSION['id_login']; 
+    }
+    
+    public function get_logged_user_parametr($parametr){
+        if($parametr = 'id_uzytkownika')
+            $sql = "SELECT id_uzytkownika FROM logowanie WHERE id_login={$this->get_user_logged_id()}"; 
+        if($result = $this->con->query($sql)){
+            $return = $result->fetch_row(); 
+        }
+        return $return[0]; 
+    }
+        
     //Start session
     public function get_session(){
         if(!empty($_SESSION) && $_SESSION['login']){
@@ -86,7 +99,22 @@ class Authorization {
     
     //Get user name
     public function get_user_name(){
+        $sql = "SELECT nazwa_tabeli FROM logowanie WHERE id_login={$this->get_user_logged_id()}"; 
         
+        if($result = $this->con->query($sql)){
+            $return = $result->fetch_row(); 
+            
+            if($return[0] == 'uczniowie'){
+                $sql = "SELECT imie, nazwisko FROM uczniowie WHERE id_ucznia = {$this->get_logged_user_parametr('id_uzytkownika')}"; 
+                if($result = $this->con->query($sql)){
+                    $return = $result->fetch_row(); 
+                }
+            }elseif($return[0] == 'uczniowie'){
+                $sql = "";
+            }
+        }
+        $return = $return[0] . ' ' . $return[1];
+        return $return; 
     }
     
     public function display_error($error){

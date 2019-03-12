@@ -7,6 +7,8 @@ include 'header.php';
 <h2 class="page-subtitle">Lista klas</h2>
 <?php 
 
-$classes = new Students(); 
+$students = new Students(); 
 
-$classes->get_class_list_as_HTML(); 
+$students->get_class_list_as_HTML(); 
+
+$students->get_students_by_class_as_HTML(1); 
