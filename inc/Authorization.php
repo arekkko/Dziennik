@@ -6,7 +6,6 @@ class Authorization {
     
     public function __construct(){
         
-        include 'config.php'; 
         
         //Create connect 
         $this->con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE); 
@@ -19,8 +18,8 @@ class Authorization {
     }
     
     public function __destruct(){
+        
         mysqli_close($this->con); 
-        session_destroy();
     }
     
     //Registration process
