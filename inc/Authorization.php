@@ -87,7 +87,7 @@ class Authorization {
     
     //Get user name
     public function get_user_name(){
-        $sql = 
+        
     }
     
     public function display_error($error){

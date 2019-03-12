@@ -1,6 +1,6 @@
 <html>
 <head>
-aaaa
+
 </head>
 <body>
 <!-- http://www.w3programmers.com/login-registration-using-oop/ -->   
