@@ -9,6 +9,8 @@
     
 <?php 
 include 'inc/Authorization.php'; 
+include 'inc/Students.php'; 
+include 'inc/config.php'; 
 
 session_start();
 $user = new Authorization(); 
