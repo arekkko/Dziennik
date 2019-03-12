@@ -19,8 +19,8 @@ class Authorization {
     }
     
     public function __destruct(){
+        
         mysqli_close($this->con); 
-        session_destroy();
     }
     
     //Registration process
