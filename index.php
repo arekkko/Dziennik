@@ -42,6 +42,14 @@ if(isset($_GET['page'])){
         include 'template/studentsClassPage.php'; 
         exit(); 
     }
+    elseif($_GET['page' == 'studentMarks']){
+        /*include 'inc/StudentMarks.php'; 
+        
+        $student = new StudentMarks(); 
+        
+        include 'inc/studentMarks.php'; 
+        exit(); */
+    }
 }
     
 if($user->get_session()){ 

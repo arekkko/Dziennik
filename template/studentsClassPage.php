@@ -1,10 +1,6 @@
-<html>
-<head>
-    <?php 
+<?php 
     include 'sections/head.php';
-    ?>
-</head>
-    <body>
+?>
 <?php 
 include 'sections/header.php'; 
 ?>

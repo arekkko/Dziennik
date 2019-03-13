@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <?php if($user->is_teacher()): ?><li class="nav-item"><a class="nav-link" href="./">Klasy</a></li><?php endif; ?>
-      <?php if($user->is_student()): ?><li class="nav-item"><a class="nav-link" href="./">Oceny</a></li><?php endif; ?>
+      <?php if($user->is_student()): ?><li class="nav-item"><a class="nav-link" href="?page=studentMarks">Oceny</a></li><?php endif; ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Listy
