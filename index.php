@@ -18,6 +18,7 @@ $user = new Authorization();
 if($user->get_session()){ 
     include 'template/mainPage.php'; 
 }else{    
+    echo 'tstdsf'; 
     include 'login.php'; 
 }
     

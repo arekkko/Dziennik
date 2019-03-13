@@ -3,6 +3,7 @@
 
 class Authorization {
     protected $con; 
+    private $userRole; //1 - uczen , 2 - nauczyciel
     
     public function __construct(){
         
@@ -58,7 +59,14 @@ class Authorization {
             //session_start();
             $_SESSION['login']   = true; 
             $_SESSION['id_login'] = $result['id_login'];
-             
+            
+            $userTable =  $this->get_logged_user_parametr('nazwa_tabeli'); 
+            if($userTable == 'uczniowie'){
+                $this->userRole = 1; 
+            }elseif($userTable == 'nauczyciele'){
+                $this->userRole = 2; 
+            }
+            
             return true;
             
         }else{
@@ -74,8 +82,10 @@ class Authorization {
     }
     
     public function get_logged_user_parametr($parametr){
-        if($parametr = 'id_uzytkownika')
+        if($parametr == 'id_uzytkownika')
             $sql = "SELECT id_uzytkownika FROM logowanie WHERE id_login={$this->get_user_logged_id()}"; 
+        elseif($parametr == 'nazwa_tabeli')
+            $sql = "SELECT nazwa_tabeli FROM logowanie WHERE id_login={$this->get_user_logged_id()}"; 
         if($result = $this->con->query($sql)){
             $return = $result->fetch_row(); 
         }
@@ -91,6 +101,11 @@ class Authorization {
         } 
     }
     
+    //Get user role
+    public function get_user_role(){
+        return $this->userRole;
+    }
+        
     //Logout process
     public function logout_process(){
         $_SESSION['login'] = false; 
@@ -109,8 +124,11 @@ class Authorization {
                 if($result = $this->con->query($sql)){
                     $return = $result->fetch_row(); 
                 }
-            }elseif($return[0] == 'uczniowie'){
-                $sql = "";
+            }elseif($return[0] == 'nauczyciele'){
+                $sql = "SELECT imie, nazwisko FROM nauczyciele WHERE id_nauczyciela = {$this->get_logged_user_parametr('id_uzytkownika')}";
+                if($result = $this->con->query($sql)){
+                    $return = $result->fetch_row();
+                }
             }
         }
         $return = $return[0] . ' ' . $return[1];
