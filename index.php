@@ -1,8 +1,4 @@
-<html>
-<head>
 
-</head>
-<body>
 <!-- http://www.w3programmers.com/login-registration-using-oop/ -->   
     
 <!-- w tabeli uczniowie i tabeli nauczyciele trzeba zmienić nazwę komuny z id na id_osoby (tak aby tu i tu byla jednakowa) --> 
@@ -14,13 +10,6 @@ include 'inc/config.php';
 
 session_start();
 $user = new Authorization(); 
-    
-if($user->get_session()){ 
-    include 'template/mainPage.php'; 
-}else{    
-    echo 'tstdsf'; 
-    include 'login.php'; 
-}
     
 if(isset($_GET['logout']) && $_GET['logout'] == true ){
     $user->logout_process(); 
@@ -37,12 +26,29 @@ if(isset($_GET['loginProcess'])){
     
     if($auth){
         include 'template/mainPage.php'; 
+        exit(); 
     }else{
         include 'login.php'; 
     }
 }
 
-?>
+if(isset($_GET['page'])){
+    if($_GET['page'] == 'studentsClass'){
 
-</body>    
-</html>
+        include 'inc/StudentsList.php'; 
+        
+        $studentsList = new StudentsList(); 
+        
+        include 'template/studentsClassPage.php'; 
+        exit(); 
+    }
+}
+    
+if($user->get_session()){ 
+    include 'template/mainPage.php'; 
+    exit(); 
+}else{    
+    include 'login.php'; 
+}
+
+?>

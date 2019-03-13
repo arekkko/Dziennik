@@ -22,27 +22,12 @@ class Students{
 
             /* fetch object array */
             while ($row = $result->fetch_row()) {
-                echo "{$row[0]} . {$row[1]}<br>"; 
+                echo "<a href=\"?page=studentsClass&class={$row[0]}\">{$row[1]}</a><br>"; 
             }
 
-            /* free result set */
-            $result->close();
         }else{
             $err = 'Brak klas'; 
             $this->error($err);
         }    
-    }
-    
-    public function get_students_by_class_as_HTML($class_id){
-        $sql = "SELECT * FROM uczniowie WHERE `id_klasy` = ${class_id}"; 
-        
-        if($result = $this->con->query($sql)){
-            
-            // fetch object array
-            while($row = $result->fetch_row()){
-                echo " {$row[0]} - {$row[1]} {$row[2]}<br>";
-            }
-            
-        }
     }
 }

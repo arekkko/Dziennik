@@ -7,7 +7,6 @@ class Authorization {
     
     public function __construct(){
         
-        
         //Create connect 
         $this->con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE); 
         
@@ -67,11 +66,14 @@ class Authorization {
                 $this->userRole = 2; 
             }
             
+            $_SESSION['userRole'] = $this->userRole;
+            
             return true;
             
         }else{
             $err = 'Zły login lub hasło. Sprobuj ponownie.'; 
             $this->display_error($err);
+            
             return false; 
         }
     }
@@ -103,7 +105,24 @@ class Authorization {
     
     //Get user role
     public function get_user_role(){
-        return $this->userRole;
+        //return $this->userRole;
+        return $_SESSION['userRole']; 
+    }
+    
+    //Verify if is teacher
+    public function is_teacher(){
+        if($this->get_user_role() == 2)
+            return true; 
+        else
+            return false; 
+    }
+    
+    //Verify if is student
+    public function is_student(){
+        if($this->get_user_role() == 1)
+            return true; 
+        else 
+            return false; 
     }
         
     //Logout process
