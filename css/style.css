@@ -63,6 +63,7 @@ Formularz logowania
           animation-name: myAnimation;
           animation-duration: 14s;
           animation-fill-mode: forwards;
-          color: green;
+          color:#28a745;
+
       
 }
