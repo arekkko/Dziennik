@@ -10,8 +10,12 @@ include 'sections/header.php';
 <?php 
 
 ?>
-<h2 class="page-subtitle">Uczeń <?php $user->get_user_name() ?></h2>
+<h2 class="page-subtitle">Uczeń <?php echo $user->get_user_name() ?></h2>
 
-
+<?php 
+    
+$student->get_students_table_as_HTML(); 
+    
+    ?>
     </body>
 </html>
