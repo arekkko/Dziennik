@@ -160,6 +160,6 @@ class Authorization {
     }
     
     public function display_success($communicat){
-        echo "<span class=\"znikanie\">{$communicat}</span>"; 
+        echo "<span class=\"znikanie alert alert-success\">{$communicat}</span>"; 
     }
 }

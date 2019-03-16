@@ -64,6 +64,9 @@ Formularz logowania
           animation-duration: 14s;
           animation-fill-mode: forwards;
           color:#28a745;
-
-      
+          width: 100%;
+          text-align: center;
+          float:left;
+                
 }
+
