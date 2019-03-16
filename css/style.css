@@ -62,5 +62,10 @@ Formularz logowania
           animation-name: myAnimation;
           animation-duration: 5s;
           text-align: center;
-          width:300px;
+          pointer-events: none;
+        
+
+
 }
+
+
