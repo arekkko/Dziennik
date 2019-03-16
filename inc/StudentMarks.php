@@ -17,18 +17,29 @@ class StudentMarks extends Authorization{
 
         $user_id = Authorization::get_user_logged_id();
 
-        $sql = "SELECT ocena, komentarz, id_przedmiotu FROM oceny WHERE id_ucznia = ${user_id}";
-echo $sql; 
+        $sql = "SELECT DISTINCT(id_przedmiotu) FROM oceny WHERE id_ucznia = ${user_id}";
+
+        $array = [];
+        $array['id_przedmiotu'] = [];
+
         if($result = $this->con->query($sql)){
-            while($row = $result->fetch_row()){
-              $this->print_array($row);
-               echo "${row['id_przedmiotu']} - ${row['komentarz']}";
+            while($row = $result->fetch_assoc()){
+                $this->pa($row);
+                
+                array_push($array['id_przedmiotu'], $row['id_przedmiotu']);
+                if($query = $this->con->query("SELECT ocena, komentarz FROM oceny WHERE id_ucznia = ${user_id} AND id_przedmiotu = ${row['id_przedmiotu']}")){
+                  while($query_result = $query->fetch_assoc()){
+                    $this->pa($query_result);
+                    //array_push($array['id_przedmiotu'], $query_result['ocena']);
+                  }
+                }
             }
         }
+         $this->pa($array);
     }
 
 
-    public function print_array($array){
+    public function pa($array){
         echo "<pre>";
         print_r($array);
         echo "</pre>";
