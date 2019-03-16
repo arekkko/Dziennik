@@ -25,12 +25,15 @@ class StudentMarks extends Authorization{
         if($result = $this->con->query($sql)){
             while($row = $result->fetch_assoc()){
                 $this->pa($row);
-                
                 array_push($array['id_przedmiotu'], $row['id_przedmiotu']);
+
                 if($query = $this->con->query("SELECT ocena, komentarz FROM oceny WHERE id_ucznia = ${user_id} AND id_przedmiotu = ${row['id_przedmiotu']}")){
-                  while($query_result = $query->fetch_assoc()){
-                    $this->pa($query_result);
-                    //array_push($array['id_przedmiotu'], $query_result['ocena']);
+                  $i = 0;
+                  $query_result = $query->fetch_assoc();
+                  foreach($query_result as $result){
+                    $this->pa($result);
+                    array_push($array['id_przedmiotu'][$i], $query_result['ocena']);
+                    $i++;
                   }
                 }
             }
