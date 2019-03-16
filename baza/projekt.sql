@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Mar 2019, 12:39
+-- Czas generowania: 16 Mar 2019, 18:05
 -- Wersja serwera: 10.1.8-MariaDB
 -- Wersja PHP: 5.6.14
 
@@ -158,7 +158,7 @@ CREATE TABLE `oceny` (
 INSERT INTO `oceny` (`id_oceny`, `ocena`, `komentarz`, `id_przedmiotu`, `id_ucznia`) VALUES
 (1, 1, 'Bardzo słabo', 6, 3),
 (2, 2, 'Słabo', 2, 12),
-(3, 4, NULL, 5, 6),
+(3, 4, 'Średnio', 5, 6),
 (4, 6, 'Wspaniale', 8, 11),
 (5, 5, 'Bardzo dobrze', 3, 2),
 (6, 3, 'Średnio', 6, 1),
@@ -182,7 +182,7 @@ INSERT INTO `oceny` (`id_oceny`, `ocena`, `komentarz`, `id_przedmiotu`, `id_uczn
 (24, 1, 'Bardzo źle', 2, 9),
 (25, 5, 'Bardzo dobrze', 3, 2),
 (26, 3, 'Średnio', 1, 11),
-(27, 2, NULL, 4, 2),
+(27, 2, 'Słabo', 4, 2),
 (28, 1, 'Bardzo słabo', 8, 18),
 (29, 4, 'Dobrze', 2, 7),
 (30, 5, 'Bardzo dobrze', 2, 10);
