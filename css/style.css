@@ -4,37 +4,37 @@
 */
 
 
-/* 
+/*
 ** Do ostylowania
-*/ 
+*/
 
-/* 
+/*
 ** 1. Errors and logs
-*/ 
+*/
 
 /* Zwykły komunikat o błędzie */
 .error{
-    
+
 }
 
 
 /* Zwykły komunikat o powodzeniu */
 .success{
-    
-}
-
-/* Głowny tytuł storny */ 
-.page-title{ 
 
 }
 
-/* Podtytuł strony */ 
+/* Głowny tytuł storny */
+.page-title{
+
+}
+
+/* Podtytuł strony */
 .page-subtitle{
-    
+
 }
 
-/* 
-Formularz logowania 
+/*
+Formularz logowania
 */
 
 .nav-height
@@ -44,29 +44,23 @@ Formularz logowania
 }
 @keyframes myAnimation{
     0%{
-      opacity: 1;
-      transform: rotateX(90deg);
+      opacity: 0;
     }
     50%{
-      opacity: 0.5;
-      transform: rotateX(0deg);
+      opacity: 1;
     }
     100%{
-      display: none;
       opacity: 0;
-      transform: rotateX(90deg);
-    
     }
   }
-.znikanie
+.badge-alert
 {
+          position: fixed;
+          top:10px;
+          right:10px;
+          z-index: 100;
           animation-name: myAnimation;
-          animation-duration: 14s;
-          animation-fill-mode: forwards;
-          color:#28a745;
-          width: 100%;
+          animation-duration: 5s;
           text-align: center;
-          float:left;
-                
+          width:300px;
 }
-
