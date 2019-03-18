@@ -68,7 +68,27 @@ Formularz logowania
           animation-duration: 5s;
           text-align: center;
           pointer-events: none;
-
-
-
+}
+.odstep
+{
+  padding-top: 100px;
+}
+.oknolog
+{
+    text-align: center;
+    margin:auto;
+}
+.logo
+{
+  border: solid;
+  width: 700px;
+  margin: auto;
+}
+img
+{
+  width: 150px;
+}
+.logsrc
+{
+  width:400px;
 }
