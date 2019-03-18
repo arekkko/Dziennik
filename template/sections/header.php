@@ -1,2 +1,2 @@
 
-<?php include 'menu.php'; ?>
+<?php if($user->get_session()) include 'menu.php'; ?>

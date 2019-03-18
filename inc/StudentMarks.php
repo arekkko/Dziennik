@@ -34,10 +34,11 @@ class StudentMarks extends Authorization{
 
       foreach($marks_array as $key_marks => $subject){
         foreach($subject as $key_subject => $oceny){
+          $przedmiot = $this->get_class_name_by_id($key_marks);
           echo "<tr>";
-          echo "<td>{$key_marks}</td><td class=\"row\">";
+          echo "<td>${przedmiot}</td><td class=\"row\">";
           foreach($oceny as $ocena){
-            echo "<div class=\"col-1\">{$ocena['value']}</div>";
+            echo "<div class=\"col-1\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Komentarz: {$ocena['comment']}\">{$ocena['value']}</div>";
           }
           echo "</td></tr>";
         }
@@ -75,6 +76,7 @@ class StudentMarks extends Authorization{
           }
       }
       $this->student_marks = $arrayMarks;
+      ///$this->pa($arrayMarks); 
     }
 
 
@@ -82,5 +84,16 @@ class StudentMarks extends Authorization{
         echo "<pre>";
         print_r($array);
         echo "</pre>";
+    }
+
+    public function get_class_name_by_id($id){
+      $sql = "SELECT przedmiot FROM przedmioty WHERE id_przedmiotu = ${id}";
+
+      $query = $this->con->query($sql);
+
+      if($query->num_rows){
+        $result = $query->fetch_assoc();
+        return $result['przedmiot'];
+      }
     }
 }
