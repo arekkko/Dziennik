@@ -10,10 +10,11 @@ class Authorization {
         //Create connect
         $this->con = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-        //Check connection if is correct
-        if($this->con->connect_error){
+        //Check connection if is correct and set charset
+        if($this->con->connect_error)
             die("Connection failed: " . $this->con->connect_error);
-        }
+        else
+          $this->con->set_charset('utf8');
 
     }
 
@@ -160,6 +161,6 @@ class Authorization {
     }
 
     public function display_success($communicat){
-        echo "<span class=\"badge-alert alert alert-success\">{$communicat}</span>"; 
+        echo "<span class=\"badge-alert alert alert-success\">{$communicat}</span>";
     }
 }

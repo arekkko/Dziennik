@@ -33,6 +33,11 @@
 
 }
 
+/* Nazwa klasy którą zawierają tabele - do ostylowania */
+.dziennik-table{
+
+}
+
 /*
 Formularz logowania
 */
@@ -63,9 +68,7 @@ Formularz logowania
           animation-duration: 5s;
           text-align: center;
           pointer-events: none;
-        
+
 
 
 }
-
-
