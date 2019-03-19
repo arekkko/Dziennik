@@ -16,6 +16,8 @@ class Authorization {
         else
           $this->con->set_charset('utf8');
 
+        $this->user_name = $this->get_user_name_db(); 
+
     }
 
     public function __destruct(){
@@ -133,7 +135,7 @@ class Authorization {
     }
 
     //Get user name
-    public function get_user_name(){
+    public function get_user_name_db(){
         $sql = "SELECT nazwa_tabeli FROM logowanie WHERE id_login={$this->get_user_logged_id()}";
 
         if($result = $this->con->query($sql)){
@@ -153,6 +155,10 @@ class Authorization {
         }
         $return = $return[0] . ' ' . $return[1];
         return $return;
+    }
+
+    public function get_user_name(){
+      return $this->user_name;
     }
 
     public function display_error($error){

@@ -36,12 +36,16 @@ class TeacherAddMark extends StudentsList{
                         <td>{$row[0]}</td>
                         <td>{$row[1]}</td>
                         <td>{$row[2]}</td>
-                        <td><a href=\"?addMark&studentId={$row[0]}\" class=\"btn\">Dodaj</a></td>
+                        <td><a href=\"?page=teacherAddMark&subpage=addMark&studentId={$row[0]}\" class=\"btn\">Dodaj</a></td>
                         </tr>";
           }
           echo "</tbody>
             </table>";
       }
+  }
+
+  public function get_subjects_db(){
+    
   }
 
 }

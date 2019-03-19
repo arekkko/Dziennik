@@ -60,7 +60,14 @@ if(isset($_GET['page'])){
 
       if(isset($_GET['subpage']) && $_GET['subpage'] == 'addToClass'){
           include 'template/teacherAddMark.php';
-      }else
+      }elseif(isset($_GET['subpage']) && $_GET['subpage'] == 'addMark'){
+          include 'inc/BuildForms.php';
+          $buildForms = new BuildForms('addStudentMark');
+
+          include 'template/addMark.php';
+          exit(); 
+      }
+      else
         include 'template/mainPage.php';
       exit();
     }
