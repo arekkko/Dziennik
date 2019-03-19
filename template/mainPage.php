@@ -3,7 +3,7 @@
     include 'sections/header.php';
 ?>
 <div class="container">
-<h1 class="page-title">Strona głowna</h1>
+<h1 class="page-title"><i>Witaj w Dzienniku Elektronicznym GreatBook!</i></h1>
 
 <?php
 $students = new Students();

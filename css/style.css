@@ -25,6 +25,7 @@
 
 /* Głowny tytuł storny */
 .page-title{
+color:rgb(156, 156, 156);
 
 }
 
@@ -79,7 +80,7 @@ height:100%;
           position: fixed;
           top:10px;
           right:10px;
-          margin-right: 100px;
+          margin-right:10%;
           margin-top: 10px;
           z-index: 100;
           animation-name: myAnimation;
@@ -104,9 +105,10 @@ height:100%;
 }
 .logo
 {
-  border: solid;
+  border: lightgray solid;
   width: 700px;
   margin: auto;
+  border-radius: 10px;
 }
 img
 {
@@ -119,11 +121,11 @@ img
 .wpislog
 {
   width: 700px;
-  border: ;
   height: 350px;
   margin:auto;
   text-align: center;
   padding-top: 30px;
+  border-radius: 10px;
 }
 input[type=text]
 {
@@ -149,8 +151,9 @@ input[type=submit]
   color: #28a745;
   border-color: #28a745;
   border: 1px solid !important;
-
-
-
 }
 
+h1
+{
+  text-align: center;
+}
