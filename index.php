@@ -14,7 +14,8 @@ $student = new Students();
 
 if(isset($_GET['logout']) && $_GET['logout'] == true ){
     $user->logout_process();
-    header("Location: ./");
+    include 'template/login.php';
+    exit();
 }
 
 if(isset($_GET['login'])){
@@ -26,7 +27,8 @@ if(isset($_GET['loginProcess'])){
     $auth = $user->login_process($_POST['login'], $_POST['password']);
 
     if($auth){
-        include 'template/mainPage.php';
+        header("Location: ./");
+        //include 'template/mainPage.php';
         exit();
     }else{
         include 'template/login.php';
@@ -65,17 +67,13 @@ if(isset($_GET['page'])){
           $buildForms = new BuildForms('addStudentMark');
 
           include 'template/addMark.php';
-          exit(); 
+          exit();
       }
       else
         include 'template/mainPage.php';
       exit();
     }
 }
-
 include 'template/mainPage.php';
 exit();
-
-
-
 ?>

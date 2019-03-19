@@ -8,6 +8,7 @@
     <?php
       $possible_marks = ['1', '2','3', '4', '5', '6'];
       $buildForms->select_filed($possible_marks, 'Wybierz ocenę');
+      $possible_subjects = ;
     ?>
   </div>
 <?php include 'sections/footer.php'; ?>
