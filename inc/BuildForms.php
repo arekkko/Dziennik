@@ -8,11 +8,12 @@ class BuildForms{
   }
 
   /*
-  ** Przyjmuje dwa argumenty
+  ** Przyjmuje trzy argumenty
   ** - możliwe opcje wyboru
+  ** - możliwe opcje wyboru - zapis do bazy
   ** - nazwa opcji
   */
-  public function select_filed($options, $label = 'Wybierz'){
+  public function select_filed($options, $options_to_db, $label = 'Wybierz'){
     if(gettype($options) != 'array'){
         return 0;
     }
@@ -20,8 +21,8 @@ class BuildForms{
     $select_form .= '<span class="label">'. $label .'</span>';
     $select_form .= '<select>';
 
-    foreach($options as $option){
-      $select_form .= '<option value="'. $this->get_form_name() .'_'. strtolower($option) .'">'.$option.'</option>';
+    foreach(array_combine($options_to_db, $options)  as $option_db => $option){
+      $select_form .= '<option value="'. strtolower($option_db) .'">'.$option.'</option>';
     }
 
     $select_form .= '</select>';

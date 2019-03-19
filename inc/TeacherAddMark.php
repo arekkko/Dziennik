@@ -1,8 +1,10 @@
 <?php
+include 'Subjects.php';
 
 //created by Arek
 class TeacherAddMark extends StudentsList{
   protected $con;
+  public $subjects;
 
   public function __construct(){
     //Create connect
@@ -44,8 +46,26 @@ class TeacherAddMark extends StudentsList{
       }
   }
 
-  public function get_subjects_db(){
-    
+  private function get_subjects_db(){
+    $sql = "SELECT * FROM przedmioty";
+
+    $query = $this->con->query($sql);
+
+    $possible_subject = [];
+
+    if($query->num_rows){
+      while($result = $query->fetch_assoc()){
+        array_push($possible_subject, new Subjects($result['id_przedmiotu'], $result['przedmiot']));
+      }
+    }
+    $this->subjects = $possible_subject;
+  }
+
+  public function get_subjects(){
+    if(!$this->subjects)
+      $this->get_subjects_db();
+
+    return $this->subjects;
   }
 
 }
