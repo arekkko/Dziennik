@@ -3,6 +3,7 @@
 
 class Authorization {
     protected $con;
+    //public $user_name; 
     private $userRole; //1 - uczen , 2 - nauczyciel
 
     public function __construct(){
@@ -16,7 +17,7 @@ class Authorization {
         else
           $this->con->set_charset('utf8');
 
-        $this->user_name = $this->get_user_name_db(); 
+        $this->user_name = $this->get_user_name_db();
 
     }
 
