@@ -32,7 +32,7 @@ class StudentsList{
       elseif(isset($_GET['class']))
         return $_GET['class'];
       else
-        die("Błąd pobierania wartości id klasy"); 
+        die("Błąd pobierania wartości id klasy");
     }
 
     public function get_class_name_db(){
