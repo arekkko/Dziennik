@@ -42,6 +42,18 @@
 Formularz logowania
 */
 
+
+.page
+{
+  background: rgb(246, 250, 244);
+  background-image: linear-gradient(to top,rgb(246, 250, 244),#f8f9fa);
+height:100%;
+}
+
+
+.navbar {
+  background-color:rgb(246, 250, 244);
+}
 .nav-height
 {
     padding: 20px;
@@ -50,12 +62,16 @@ Formularz logowania
 @keyframes myAnimation{
     0%{
       opacity: 0;
+      right: -0%;
     }
     50%{
       opacity: 1;
+      right: 0%;
     }
     100%{
       opacity: 0;
+      right: -100%;
+      
     }
   }
 .badge-alert
@@ -63,15 +79,23 @@ Formularz logowania
           position: fixed;
           top:10px;
           right:10px;
+          margin-right: 100px;
+          margin-top: 10px;
           z-index: 100;
           animation-name: myAnimation;
-          animation-duration: 5s;
+          animation-duration:8s;
           text-align: center;
           pointer-events: none;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
 }
 .odstep
 {
   padding-top: 100px;
+}
+.odstep1
+{
+  padding-top: 50px;
 }
 .oknolog
 {
@@ -92,3 +116,41 @@ img
 {
   width:400px;
 }
+.wpislog
+{
+  width: 700px;
+  border: ;
+  height: 350px;
+  margin:auto;
+  text-align: center;
+  padding-top: 30px;
+}
+input[type=text]
+{
+  margin: 5px;
+  border-radius: 5px; 
+  line-height: inherit;
+  padding: 7px;
+}
+input[type=password]
+{
+  margin: 5px;
+  border-radius: 5px; 
+  padding: 7px;
+  line-height: inherit;
+
+}
+input[type=submit]
+{
+  margin: 10px;
+  border-radius: 5px; 
+  padding: 7px;
+  line-height: inherit;
+  color: #28a745;
+  border-color: #28a745;
+  border: 1px solid !important;
+
+
+
+}
+
