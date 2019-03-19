@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light nav-height">
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-height ">
   <a class="navbar-brand" href="./"><img src="img/114.png"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -36,3 +36,4 @@
 
   </div>
 </nav>
+<div class="odstep1"> </div>
