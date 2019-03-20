@@ -21,9 +21,6 @@
         </div>
       </li>
       <?php endif; ?>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
     </ul>
       <div class="pt-0">
       <?php

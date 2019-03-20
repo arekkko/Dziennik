@@ -8,9 +8,11 @@ include 'inc/Authorization.php';
 include 'inc/Students.php';
 include 'inc/config.php';
 
-session_start();
-$user = new Authorization();
-$student = new Students();
+//if(isset($user)){
+  session_start();
+  $user = new Authorization();
+  $student = new Students();
+//}
 
 if(isset($_GET['logout']) && $_GET['logout'] == true ){
     $user->logout_process();
