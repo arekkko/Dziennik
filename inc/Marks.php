@@ -1,13 +1,13 @@
 <?php
 //Created by Arek
 
-class Students{
+class Marks{
     protected $con;
     private $student_id;
-    private $student_name;
-    private $student_surname;
-    private $student_image;
-    private $student_id_klasy;
+    private $id_oceny;
+    private $id_przedmiotu;
+    private $ocena;
+    private $komentarz;
 
     public function __construct($student_id){
       //Create connect
@@ -21,10 +21,30 @@ class Students{
 
       //Set
       $this->student_id = $student_id;
-
-      $this->get_db_student_personality();
     }
 
+    public function set_mark(){
+
+      if(!($mark = $_POST['mark'] && $subject = $_POST['subject']))
+        return 0;
+
+      $comment = $_POST['comment'];
+
+      $sql = "INSERT INTO oceny VALUES('', $mark, '$comment', $subject, {$this->student_id});";
+
+      //header('Location: '. $_SERVER['HTTP_REFERER']);
+      Communicats::display_success('Dodano ocenę pomyślnie');
+
+
+      $query = $this->con->query($sql);
+
+      if($this->con->error)
+        echo $this->con->error;
+      else
+        Communicats::display_success('Dodano ocenę pomyślnie');
+
+    }
+    /*
     public function get_db_student_personality(){
 
       $sql = "SELECT * FROM uczniowie WHERE id_ucznia = {$this->student_id}";
@@ -59,4 +79,5 @@ class Students{
     public function get_image(){
       return $this->student_image;
     }
+    */
 }

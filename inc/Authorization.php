@@ -3,7 +3,7 @@
 
 class Authorization {
     protected $con;
-    //public $user_name; 
+    //public $user_name;
     private $userRole; //1 - uczen , 2 - nauczyciel
 
     public function __construct(){
@@ -58,7 +58,7 @@ class Authorization {
 
         if($query->num_rows){
             //Login process - success
-            $this->display_success('Witaj, zalogowałeś się poprawnie');
+            Communicats::display_success('Witaj, zalogowałeś się poprawnie');
             //session_start();
             $_SESSION['login']   = true;
             $_SESSION['id_login'] = $result['id_login'];
@@ -76,7 +76,7 @@ class Authorization {
 
         }else{
             $err = 'Zły login lub hasło. Sprobuj ponownie.';
-            $this->display_error($err);
+            Communicats::display_error($err);
 
             return false;
         }
@@ -160,14 +160,5 @@ class Authorization {
 
     public function get_user_name(){
       return $this->user_name;
-    }
-
-    public function display_error($error){
-        die("<p class=\"error\">Wystąpił błąd: <strong>${error}</strong>.</p>");
-        return 0;
-    }
-
-    public function display_success($communicat){
-        echo "<span class=\"badge-alert alert alert-success\">{$communicat}</span>";
     }
 }

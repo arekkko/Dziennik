@@ -5,12 +5,12 @@
 <div class="container">
 <h1 class="page-title"><i>Witaj w Dzienniku Elektronicznym GreatBook!</i></h1>
 
+<h2 class="page-subtitle">Witaj <?php $user->get_user_name(); ?></h2>
 <?php
-$students = new Students();
-
 if($user->is_teacher()):?>
         <h2 class="page-subtitle">Lista klas</h2>
-        <?php $students->get_class_list_as_HTML();   ?>
+        <?php $studentsList->get_class_list_as_HTML();
+?>
 <?php endif; ?>
 </div>
 <?php include 'sections/footer.php'; ?>
