@@ -51,6 +51,10 @@ if(isset($_GET['page'])){
         include 'template/studentsClassPage.php';
         exit();
     }
+    elseif($_GET['page'] == 'classList'){
+      include 'template/classList.php';
+      exit();
+    }
     elseif($_GET['page'] == 'studentMarks'){
         include 'inc/studentMarks.php';
         $student = new StudentMarks();
@@ -74,12 +78,18 @@ if(isset($_GET['page'])){
           include 'template/addMark.php';
           exit();
       }else{
-        include 'template/mainPage.php';
+        include 'template/selectClassTeacher.php';
         exit();
       }
+    }elseif($_GET['page'] == 'addStudent'){
+        //Include class
+        include 'inc/BuildForms.php';
+        $buildForms = new BuildForms('addStudentMark');
 
-      include 'template/teacherAddMark.php';
-      exit(); 
+
+        //Load tempalte
+        include 'template/addStudent.php';
+        exit();
     }
 }
 

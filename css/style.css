@@ -31,7 +31,11 @@ color:rgb(156, 156, 156);
 
 /* Podtytuł strony */
 .page-subtitle{
-
+  display: block;
+  font-size:1.6em;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px; 
 }
 
 /* Nazwa klasy którą zawierają tabele - do ostylowania */
@@ -72,7 +76,7 @@ height:100%;
     100%{
       opacity: 0;
       right: -100%;
-      
+
     }
   }
 .badge-alert
@@ -130,14 +134,14 @@ img
 input[type=text]
 {
   margin: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
   line-height: inherit;
   padding: 7px;
 }
 input[type=password]
 {
   margin: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
   padding: 7px;
   line-height: inherit;
 
@@ -145,7 +149,7 @@ input[type=password]
 input[type=submit]
 {
   margin: 10px;
-  border-radius: 5px; 
+  border-radius: 5px;
   padding: 7px;
   line-height: inherit;
   color: #28a745;

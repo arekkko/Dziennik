@@ -3,7 +3,7 @@
 
 class Authorization {
     protected $con;
-    //public $user_name;
+    //private $user_name;
     private $userRole; //1 - uczen , 2 - nauczyciel
 
     public function __construct(){
