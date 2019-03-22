@@ -67,7 +67,7 @@ class StudentsList{
         $sql = "SELECT id_klasy, klasa FROM klasy WHERE id_rok_szkolny = " . ACTUAL_YEAR;
 
         if ($result = $this->con->query($sql)) {
-            $classes; 
+            $classes;
             /* fetch object array */
             while ($row = $result->fetch_row()) {
 

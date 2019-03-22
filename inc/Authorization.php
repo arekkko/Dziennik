@@ -3,7 +3,7 @@
 
 class Authorization {
     protected $con;
-    //private $user_name;
+    public $user_name;
     private $userRole; //1 - uczen , 2 - nauczyciel
 
     public function __construct(){
@@ -16,9 +16,6 @@ class Authorization {
             die("Connection failed: " . $this->con->connect_error);
         else
           $this->con->set_charset('utf8');
-
-        $this->user_name = $this->get_user_name_db();
-
     }
 
     public function __destruct(){
@@ -71,6 +68,7 @@ class Authorization {
             }
 
             $_SESSION['userRole'] = $this->userRole;
+            $this->user_name = $this->get_user_name_db();
 
             return true;
 
@@ -159,6 +157,10 @@ class Authorization {
     }
 
     public function get_user_name(){
+      if(empty($this->user_name))
+        $this->user_name = $this->get_user_name_db(); 
+      //echo 'test222' . $this->user_name;
+      //exit();
       return $this->user_name;
     }
 }

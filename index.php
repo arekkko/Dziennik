@@ -22,6 +22,7 @@ if(isset($_GET['logout']) && $_GET['logout'] == true ){
 
 if(isset($_GET['login'])){
     include 'template/login.php';
+    exit(); 
 }
 
 if(isset($_GET['loginProcess'])){
