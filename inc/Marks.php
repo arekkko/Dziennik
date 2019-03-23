@@ -25,21 +25,19 @@ class Marks{
 
     public function set_mark(){
 
-      if(!($mark = $_POST['mark'] && $subject = $_POST['subject']))
+      if(empty($mark = $_POST['mark']) || empty($subject = $_POST['subject'])){
+        Communicats::display_error("Wybierz ocenę oraz przedmiot");
         return 0;
+      }
 
       $comment = $_POST['comment'];
 
       $sql = "INSERT INTO oceny VALUES('', $mark, '$comment', $subject, {$this->student_id});";
 
-      //header('Location: '. $_SERVER['HTTP_REFERER']);
-      Communicats::display_success('Dodano ocenę pomyślnie');
-
-
       $query = $this->con->query($sql);
 
       if($this->con->error)
-        echo $this->con->error;
+        Communicats::display_error($this->con->error);
       else
         Communicats::display_success('Dodano ocenę pomyślnie');
 

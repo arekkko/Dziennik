@@ -12,6 +12,8 @@
   if($user->is_teacher()):?>
     <div class="col-sm-6">
       <ul>
+        <li><strong>Autoryzacja</strong>
+        <p>Twój login i hasło przechowywane są w bazie danych, specjalny kod odpowiada za sprawdzenie czy naprawdę jesteś naszym użytkownikiem i Twoją autoryzację przez prawidłowy login i hasło.</li>
         <li><strong>Lista klas</strong><br>
         <p>Przejdź do zakładki Lista klas aby sprawdzić listę klas w aktualnym roku szkolnym</p></li>
         <li><strong>Dodawanie oceny</strong><br>
@@ -21,8 +23,10 @@
 <?php elseif ($user->is_student()): ?>
   <div class="col-sm-6">
     <ul>
+      <li><strong>Autoryzacja</strong>
+      <p>Twój login i hasło przechowywane są w bazie danych, specjalny kod odpowiada za sprawdzenie czy naprawdę jesteś naszym użytkownikiem i Twoją autoryzację przez prawidłowy login i hasło.</li>
       <li><strong>Podgląd ocen</strong><br>
-      <p>Przejdź do zakładki oceny aby sprawdzić swoje oceny</p></li>
+      <p>Przejdź do zakładki oceny aby sprawdzić swoje oceny, najedź na ocenę aby sprawdzić komentarz</p></li>
     </ul>
   </div>
 <?php endif; ?>
