@@ -22,6 +22,7 @@
         </div>
       </li>
       <?php endif; ?>
+      <li class="nav-item"><a class="nav-link" href="?page=profile">Mój profil</a></li>
     </ul>
       <div class="pt-0">
       <?php

@@ -80,6 +80,28 @@ class Authorization {
         }
     }
 
+    //change password
+    public function change_password(){
+
+      if(empty($newPassword = $_POST['new_password']) || empty($newPasswordConfirm = $_POST['new_password_confirm'])){
+        Communicats::display_error("Pola nie mogą być puste");
+        return 0;
+      }
+      elseif($newPassword != $newPasswordConfirm){
+        Communicats::display_error("Hasła nie zgadzają się");
+        return 0;
+      }
+
+      $sql = "UPDATE logowanie SET haslo = '". $_POST['new_password'] ."' WHERE id_login = ". $this->get_user_logged_id() .";";
+
+      $query = $this->con->query($sql);
+
+      if($this->con->error)
+        Communicats::display_error($this->con->error);
+      else
+        header('Location:?logout=true&passwordChanged=true');
+    }
+
     //in table logowanie
     public function get_user_logged_id(){
         return $_SESSION['id_login'];
@@ -158,7 +180,7 @@ class Authorization {
 
     public function get_user_name(){
       if(empty($this->user_name))
-        $this->user_name = $this->get_user_name_db(); 
+        $this->user_name = $this->get_user_name_db();
       //echo 'test222' . $this->user_name;
       //exit();
       return $this->user_name;

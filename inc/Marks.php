@@ -42,40 +42,4 @@ class Marks{
         Communicats::display_success('Dodano ocenę pomyślnie');
 
     }
-    /*
-    public function get_db_student_personality(){
-
-      $sql = "SELECT * FROM uczniowie WHERE id_ucznia = {$this->student_id}";
-
-      $query = $this->con->query($sql);
-
-      if($query->num_rows){
-        $result = $query->fetch_assoc();
-          $this->student_name = $result['imie'];
-          $this->student_surname = $result['nazwisko'];
-          $this->student_id_klasy = $result['id_klasy'];
-          $this->student_image = $result['zdjecie_ucznia'];
-      }
-    }
-
-    public function get_id(){
-      return $this->student_id;
-    }
-
-    public function get_name(){
-      return $this->student_name;
-    }
-
-    public function get_surname(){
-      return $this->student_surname;
-    }
-
-    public function get_id_klasy(){
-      return $this->student_id_klasy;
-    }
-
-    public function get_image(){
-      return $this->student_image;
-    }
-    */
 }

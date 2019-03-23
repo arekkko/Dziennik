@@ -15,6 +15,10 @@ include 'inc/config.php';
 //}
 
 if(isset($_GET['logout']) && $_GET['logout'] == true ){
+
+    if(isset($_GET['passwordChanged']) && $_GET['passwordChanged'] == 'true')
+      Communicats::display_success('Hasło zostało zmienione pomyślnie. Zaloguj się.');
+
     $user->logout_process();
     include 'template/login.php';
     exit();
@@ -41,29 +45,28 @@ if(isset($_GET['loginProcess'])){
 if(!$user->get_session()){
   include 'template/login.php';
   exit();
-}else{
-  //Tworzy obiekt z Id aktualne zalogowanego usera
-  //$student = new Students(Authorization::get_user_logged_id());
 }
 
 if(isset($_GET['page'])){
 
-    if($_GET['page'] == 'studentsClass'){
+    $page = $_GET['page'];
+
+    if($page == 'studentsClass'){
         include 'template/studentsClassPage.php';
         exit();
     }
-    elseif($_GET['page'] == 'classList'){
+    elseif($page == 'classList'){
       include 'template/classList.php';
       exit();
     }
-    elseif($_GET['page'] == 'studentMarks'){
+    elseif($page == 'studentMarks'){
         include 'inc/studentMarks.php';
         $student = new StudentMarks();
 
         include 'template/studentMarks.php';
         exit();
     }
-    elseif($_GET['page'] == 'teacherAddMark'){
+    elseif($page == 'teacherAddMark'){
       include 'inc/TeacherAddMark.php';
 
       $teacherAddMark = new TeacherAddMark();
@@ -82,7 +85,7 @@ if(isset($_GET['page'])){
         include 'template/selectClassTeacher.php';
         exit();
       }
-    }elseif($_GET['page'] == 'addStudent'){
+    }elseif($page == 'addStudent'){
         //Include class
         include 'inc/BuildForms.php';
         $buildForms = new BuildForms('addStudentMark');
@@ -91,16 +94,27 @@ if(isset($_GET['page'])){
         //Load tempalte
         include 'template/addStudent.php';
         exit();
+    }elseif($page == 'profile'){
+        include 'inc/BuildForms.php';
+        $buildForms = new BuildForms('changePassword');
+
+        include 'template/profile.php';
+        exit();
     }
 }
 
 if(isset($_GET['action'])){
-  if($_GET['action'] == 'doAddMark'){
-    include 'inc/Marks.php';
 
+  $action = $_GET['action'];
+
+  if($action == 'doAddMark'){
+    include 'inc/Marks.php';
     $mark = new Marks($_GET['studentId']);
     $mark->set_mark();
-
+  }
+  elseif($action == 'changePassword'){
+    $user->change_password();
+    //header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 }
 include 'template/mainPage.php';

@@ -9,6 +9,6 @@ class Communicats{
   }
 
   public function display_error($error){
-      die("<p class=\"adge-alert alert alert-danger\">Wystąpił błąd: <strong>${error}</strong>.</p>");
+      echo "<p class=\"badge-alert alert alert-danger\">Wystąpił błąd: <strong>${error}</strong>.</p>";
   }
 }

@@ -46,6 +46,19 @@ class BuildForms{
   }
 
   /*
+  ** Przyjmuje 1 argument
+  ** - nazwa atrybutu name dla selecta
+  ** - label
+  */
+  public function password_field($name, $placeholder){
+    $text_field = '<div class="password_field">';
+    $text_field .= '<input type="password" name="'. $name .'" placeholder="'. $placeholder .'"/>';
+    $text_field .= '</div>';
+
+    echo $text_field;
+  }
+
+  /*
   ** Przyjmuje jeden argument
   ** - wartosc
   */
