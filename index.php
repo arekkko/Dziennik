@@ -1,7 +1,7 @@
 <?php
 include 'inc/Authorization.php';
 include 'inc/StudentsList.php';
-include 'inc/communicats.php';
+include 'inc/Communicats.php';
 include 'inc/Students.php';
 include 'inc/config.php';
 
@@ -34,8 +34,8 @@ if(isset($_GET['loginProcess'])){
     $auth = $user->login_process($_POST['login'], $_POST['password']);
 
     if($auth){
-        header("Location: ./");
-        //include 'template/mainPage.php';
+        //header("Location: ./");
+        include 'template/mainPage.php';
         exit();
     }else{
         include 'template/login.php';
@@ -60,7 +60,7 @@ if(isset($_GET['page'])){
       exit();
     }
     elseif($page == 'studentMarks'){
-        include 'inc/studentMarks.php';
+        include 'inc/StudentMarks.php';
         $student = new StudentMarks();
 
         include 'template/studentMarks.php';

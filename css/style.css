@@ -35,7 +35,7 @@ color:rgb(156, 156, 156);
   font-size:1.6em;
   font-weight: 400;
   margin-top: 20px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 /* Nazwa klasy którą zawierają tabele - do ostylowania */
@@ -52,7 +52,7 @@ Formularz logowania
 {
   background: rgb(246, 250, 244);
   background-image: linear-gradient(to top,rgb(246, 250, 244),#f8f9fa);
-height:100%;
+  height:100%;
 }
 
 
@@ -67,9 +67,12 @@ height:100%;
 @keyframes myAnimation{
     0%{
       opacity: 0;
-      right: -0%;
     }
-    50%{
+    5%{
+      opacity: 1;
+      right: 0%;
+    }
+    95%{
       opacity: 1;
       right: 0%;
     }
@@ -81,18 +84,17 @@ height:100%;
   }
 .badge-alert
 {
-          position: fixed;
-          top:10px;
-          right:10px;
-          margin-right:10%;
-          margin-top: 10px;
-          z-index: 100;
-          animation-name: myAnimation;
-          animation-duration:8s;
-          text-align: center;
-          pointer-events: none;
-          animation-iteration-count: 1;
-          animation-fill-mode: forwards;
+    position: fixed;
+    top:10px;
+    right:10px;
+    margin-right:10%;
+    margin-top: 10px;
+    z-index: 100;
+    animation-name: myAnimation;
+    animation-duration:8s;
+    text-align: center;
+    pointer-events: none;
+    animation-iteration-count: 1;
 }
 .odstep
 {
