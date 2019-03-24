@@ -68,11 +68,11 @@ Formularz logowania
     0%{
       opacity: 0;
     }
-    5%{
+    20%{
       opacity: 1;
       right: 0%;
     }
-    95%{
+    70%{
       opacity: 1;
       right: 0%;
     }
@@ -91,10 +91,11 @@ Formularz logowania
     margin-top: 10px;
     z-index: 100;
     animation-name: myAnimation;
-    animation-duration:8s;
+    animation-duration:5s;
     text-align: center;
     pointer-events: none;
     animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 .odstep
 {
