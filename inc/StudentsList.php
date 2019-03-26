@@ -62,31 +62,22 @@ class StudentsList{
         }
     }
 
-    public function get_class_array(){
+    public function get_class_array($param){
 
         $sql = "SELECT id_klasy, klasa FROM klasy WHERE id_rok_szkolny = " . ACTUAL_YEAR;
 
         if ($result = $this->con->query($sql)) {
-            $classes;
+            $classes = [];
             /* fetch object array */
             while ($row = $result->fetch_row()) {
-
-              if(isset($_GET['page']) && $_GET['page'] == 'studentsClass')
-                $goTo = "studentsClass&class={$row[0]}";
-              elseif(isset($_GET['page']) && $_GET['page'] == 'teacherAddMark')
-                $goTo = "teacherAddMark&subpage=addToClass&class={$row[0]}";
-              else
-                $goTo = "studentsClass&class={$row[0]}";
-
-              echo "<a href=\"?page=${goTo}\">{$row[1]}</a><br>";
-
-              //  echo "<a href=\"?page=studentsClass&class={$row[0]}\">{$row[1]}</a><br>";
+              if($param == 'id')
+                array_push($classes, $row[0]);
+              elseif($param == 'name')
+                array_push($classes, $row[1]);
             }
-
-        }else{
-            $err = 'Brak klas';
-            $this->error($err);
         }
+
+        return $classes;
     }
 
     public function get_class_name_db(){

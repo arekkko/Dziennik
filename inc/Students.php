@@ -19,8 +19,8 @@ class Students{
       else
         $this->con->set_charset('utf8');
 
-      //Set
-      $this->student_id = $student_id;
+      if(!empty($student_id))
+        $this->student_id = $student_id;
 
       $this->get_db_student_personality();
     }
@@ -38,6 +38,39 @@ class Students{
           $this->student_id_klasy = $result['id_klasy'];
           $this->student_image = $result['zdjecie_ucznia'];
       }
+    }
+
+    public function add_student(){
+
+      if(empty($newPassword = $_POST['password']) || empty($newPasswordConfirm = $_POST['password_confirm'])){
+        Communicats::display_error("Pola z hasłem nie mogą być puste");
+        return 0;
+      }
+      elseif($newPassword != $newPasswordConfirm){
+        Communicats::display_error("Hasła nie zgadzają się");
+        return 0;
+      }
+
+
+      $sql = "INSERT INTO uczniowie VALUES(".''.", '". $_POST['imie'] ."', '". $_POST['nazwisko'] ."', '". $_POST['class'] ."', '')";
+      $sql2 = "INSERT INTO logowanie VALUES('". $_POST['login'] ."', '". $_POST['password'] ."', '', 'uczniowie', '')";
+
+      echo $sql;
+      exit();
+
+      $query = $this->con->query($sql);
+
+      if($query){
+        $query2 = $this->con->query($sql2);
+        if($query2){
+          Communicats::display_success("Użytkownik dodany pomyślnie");
+        }else{
+          Communicats::display_error("Błąd drugiego zapytania dodawania ucznia");
+        }
+      }else{
+        Communicats::display_error("Błąd pierwszego zapytania dodawania ucznia");
+      }
+
     }
 
     public function get_id(){

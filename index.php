@@ -91,7 +91,7 @@ if(isset($_GET['page'])){
         $buildForms = new BuildForms('addStudentMark');
 
 
-        //Load tempalte
+        //Load template
         include 'template/addStudent.php';
         exit();
     }elseif($page == 'profile'){
@@ -115,6 +115,14 @@ if(isset($_GET['action'])){
   elseif($action == 'changePassword'){
     $user->change_password();
     //header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+  elseif($action == 'doAddStudent'){
+    $student = new Students();
+    $student->add_student();
+    
+    //Load tempalte
+    include 'template/addStudent.php';
+    exit();
   }
 }
 include 'template/mainPage.php';

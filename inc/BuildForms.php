@@ -18,9 +18,9 @@ class BuildForms{
     if(gettype($options) != 'array'){
         return 0;
     }
-    $select_form = '<div class="select_field">';
+    $select_form = '<div class="form-group select_field">';
     $select_form .= '<span class="label">'. $label .'</span>';
-    $select_form .= '<select name="'. $name .'">';
+    $select_form .= '<select name="'. $name .'" class="form-control">';
 
     foreach(array_combine($options_to_db, $options)  as $option_db => $option){
       $select_form .= '<option value="'. strtolower($option_db) .'">'.$option.'</option>';
@@ -38,8 +38,8 @@ class BuildForms{
   ** - placeholder
   */
   public function text_field($name, $placeholder){
-    $text_field = '<div class="text_field">';
-    $text_field .= '<input type="text" name="'. $name .'" placeholder="'. $placeholder .'"/>';
+    $text_field = '<div class="form-group text_field">';
+    $text_field .= '<input type="text" class="form-control" name="'. $name .'" placeholder="'. $placeholder .'"/>';
     $text_field .= '</div>';
 
     echo $text_field;
@@ -51,8 +51,8 @@ class BuildForms{
   ** - label
   */
   public function password_field($name, $placeholder){
-    $text_field = '<div class="password_field">';
-    $text_field .= '<input type="password" name="'. $name .'" placeholder="'. $placeholder .'"/>';
+    $text_field = '<div class="form-group password_field">';
+    $text_field .= '<input type="password" name="'. $name .'" placeholder="'. $placeholder .'" class="form-control"/>';
     $text_field .= '</div>';
 
     echo $text_field;
